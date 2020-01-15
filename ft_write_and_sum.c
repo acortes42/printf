@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 20:58:39 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/11 20:09:29 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:38:13 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ int		ft_write_and_sum(t_struct *base)
 		ft_putstr_fd(str);
 		base->total_return += n + 1;
 	}
-	if (ft_strlen(str) != 0)
+	/*if (str != NULL)
+	{
 		free(str);
+		str = NULL;
+	}*/
 	return (0);
 }

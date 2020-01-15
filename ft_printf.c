@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 16:59:34 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/10 20:44:52 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:47:52 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ int	ft_printf(const char *arr, ...)
 	}
 	n = base->total_return;
 	free(base);
-	base = NULL;
 	return (n);
 }
+/*
+int main ()
+{
+	ft_printf("%s%s", "hello", "world");
+	return (0);
+}*/
