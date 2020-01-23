@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 21:01:23 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/23 18:00:07 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:58:30 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	while (s[i] != '\0')
 		i++;
 	i += 1;
-	if (!(str = (char*)calloc(i + 1, sizeof(char))))
+	if (!(str = (char*)ft_calloc(i + 1, sizeof(char))))
 		return (NULL);
 	if (str == NULL)
 		return (NULL);
@@ -41,7 +41,7 @@ char	*ft_strndup(const char *s, int n)
 	while (s[i] != '\0' && i < n - 1)
 		i++;
 	i += 1;
-	if (!(str = (char*)calloc(i + 1, sizeof(char))))
+	if (!(str = (char*)ft_calloc(i + 1, sizeof(char))))
 		return (NULL);
 	while (i-- > 0)
 		str[i] = s[i];

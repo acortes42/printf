@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 05:46:40 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/23 18:05:18 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:18:51 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ char	*ft_strlowcase(char *str)
 	return (str);
 }
 
+void	ft_free(t_struct *base, int x)
+{
+	if (base->x != NULL && x != 0)
+	{
+		free(base->x);
+		base->x = NULL;
+	}
+}
+
 void	ft_x(t_struct *base)
 {
 	unsigned int x;
@@ -43,11 +52,7 @@ void	ft_x(t_struct *base)
 		ft_precision(base);
 		ft_put(base);
 		ft_width(base);
-		if (base->x != NULL && x != 0)
-		{
-			free(base->x);
-			base->x = NULL;
-		}
+		ft_free(base, x);
 		return ;
 	}
 	if (base->x[0] == '-' && base->flags == 1 && base->precision == 0)
@@ -58,9 +63,5 @@ void	ft_x(t_struct *base)
 	ft_precision(base);
 	if (base->flags != 2)
 		ft_put(base);
-	if (base->x != NULL && x != 0)
-	{
-		free(base->x);
-		base->x = NULL;
-	}
+	ft_free(base, x);
 }

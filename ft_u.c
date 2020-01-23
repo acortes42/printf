@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 02:36:07 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/23 18:05:23 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 19:03:33 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_itoa2(unsigned int nb)
 
 	n = nb;
 	i = len(n);
-	if (!(str = (char*)calloc(sizeof(char), i + 1)))
+	if (!(str = (char*)ft_calloc(sizeof(char), i + 1)))
 		return (NULL);
 	str[i] = '\0';
 	str[0] = '0';

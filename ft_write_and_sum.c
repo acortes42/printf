@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 20:58:39 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/23 18:04:56 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:57:21 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,24 @@ void	play_the_numbers(t_struct *base, char *str, int n, int i)
 	}
 }
 
+int		ft_trick(t_struct *base)
+{
+	int n;
+
+	n = 0;
+	while (base->copy[base->len + n] != '%' && ft_isalpha(base->copy
+		[base->len + n]) != 1 && base->copy[base->len + n] != '\0')
+		n++;
+	return (n);
+}
+
+void	ft_second_trick(t_struct *base, char *str, int n)
+{
+	ft_putchar_fd('%');
+	ft_putstr_fd(str);
+	base->total_return += n + 1;
+}
+
 int		ft_write_and_sum(t_struct *base)
 {
 	char	*str;
@@ -56,9 +74,7 @@ int		ft_write_and_sum(t_struct *base)
 
 	n = 0;
 	i = 0;
-	while (base->copy[base->len + n] != '%' && ft_isalpha(base->copy
-		[base->len + n]) != 1 && base->copy[base->len + n] != '\0')
-		n++;
+	n = ft_trick(base);
 	if (n == 0)
 	{
 		ft_new_me(base, base->copy[base->len]);
@@ -73,11 +89,7 @@ int		ft_write_and_sum(t_struct *base)
 			base->take_second_arg <= 1)
 		ft_new_me(base, base->copy[base->len]);
 	else
-	{
-		ft_putchar_fd('%');
-		ft_putstr_fd(str);
-		base->total_return += n + 1;
-	}
+		ft_second_trick(base, str, n);
 	free(str);
 	return (0);
 }

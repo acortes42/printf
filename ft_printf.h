@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 13:09:11 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/11 19:24:40 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:40:33 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,6 @@ void			*ft_calloc(size_t count, size_t size);
 char			*ft_itoa2(unsigned int nb);
 void			ft_put2(t_struct *base);
 char			*ft_strlowcase(char *str);
+void			ft_free(t_struct *base, int x);
+void			ft_width_p(t_struct *base);
 #endif

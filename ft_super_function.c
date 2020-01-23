@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 12:44:27 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/11 19:22:50 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 19:04:36 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_super_function(t_struct *base)
 		base->total_return = (int)ft_strlen(base->copy);
 		return (0);
 	}
+	if (ft_strlen(base->copy) == 1 && ft_strchr(base->copy, '%') != 0)
+		return (0);
 	while (base->copy[base->len] != '\0')
 	{
 		base->total_return++;
