@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 04:28:13 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/10 21:04:32 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 17:59:55 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_convert_to_hex(unsigned long int x)
 		cpy /= 16;
 		len++;
 	}
-	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
+	if (!(str = (char*)calloc(sizeof(char), len + 1)))
 		return (NULL);
 	while (len > 0)
 	{

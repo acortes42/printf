@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 20:58:39 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/15 16:38:13 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:04:56 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,15 @@ int		ft_write_and_sum(t_struct *base)
 	while (base->copy[base->len + n] != '%' && ft_isalpha(base->copy
 		[base->len + n]) != 1 && base->copy[base->len + n] != '\0')
 		n++;
+	if (n == 0)
+	{
+		ft_new_me(base, base->copy[base->len]);
+		return (0);
+	}
 	if (base->copy[base->len + n] == '\0')
 		return (0);
-	if (!(str = (char*)malloc(sizeof(char) * n + 1)))
-		return (0);
 	if (!(str = ft_strndup(base->copy + base->len, n)))
-		str = "";
+		return (0);
 	play_the_numbers(base, str, n, i);
 	if (base->start_precision <= 1 && base->take_arg <= 1 &&
 			base->take_second_arg <= 1)
@@ -75,10 +78,6 @@ int		ft_write_and_sum(t_struct *base)
 		ft_putstr_fd(str);
 		base->total_return += n + 1;
 	}
-	/*if (str != NULL)
-	{
-		free(str);
-		str = NULL;
-	}*/
+	free(str);
 	return (0);
 }

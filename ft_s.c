@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:31:22 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/10 20:34:49 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:32:58 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void	ft_s(t_struct *base)
 	base->n = 0;
 	if (base->flags != 2)
 		ft_put(base);
+	if (base->start_precision && base->precision < (int)ft_strlen(base->x))
+		free(base->x);
 }

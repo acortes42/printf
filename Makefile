@@ -6,7 +6,7 @@
 #    By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/08 02:10:01 by acortes-          #+#    #+#              #
-#    Updated: 2020/01/15 16:46:58 by acortes-         ###   ########.fr        #
+#    Updated: 2020/01/23 16:32:47 by acortes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ all: $(NAME)
 $(NAME): ${OBJS} ft_printf.h
 	@gcc -c ${CFLAGS} ${OBJS}
 	@ar rc ${NAME} ${COMP}
-#test:
-	#@gcc ${CFLAGS} ${OBJS}
+test:
+	@gcc ${CFLAGS} ${OBJS}
 clean:
 	@rm -f ${COMP}
 fclean:	clean

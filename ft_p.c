@@ -6,7 +6,7 @@
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 02:30:13 by acortes-          #+#    #+#             */
-/*   Updated: 2020/01/11 20:04:36 by acortes-         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:59:36 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,9 @@ void	ft_p(t_struct *base)
 		if (!(base->start_precision == 1 && base->precision == 0))
 			tramp(base);
 	}
-	if (n > 0)
+	if (base->x != NULL && n != 0)
+	{
 		free(base->x);
+		base->x = NULL;
+	}
 }
