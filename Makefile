@@ -10,17 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-OBJS =	ft_all_values_to_start.c ft_super_function.c ft_x.c ft_big_x.c  ft_c.c ft_d.c ft_i.c \
-		ft_my_args.c ft_new_me.c ft_p.c ft_printf.c ft_rest.c ft_restart_values.c ft_s.c \
-		ft_u.c ft_write_and_sum.c ft_convert_to_hex.c ft_functions1.c ft_functions2.c ft_functions3.c
+OBJS =	srcs/ft_all_values_to_start.c srcs/ft_super_function.c srcs/ft_x.c srcs/ft_big_x.c  srcs/ft_c.c srcs/ft_d.c srcs/ft_i.c \
+		srcs/ft_my_args.c srcs/ft_new_me.c srcs/ft_p.c srcs/ft_printf.c srcs/ft_rest.c srcs/ft_restart_values.c srcs/ft_s.c \
+		srcs/ft_u.c srcs/ft_write_and_sum.c srcs/ft_convert_to_hex.c srcs/ft_functions1.c srcs/ft_functions2.c srcs/ft_functions3.c
 CFLAGS = -Wall -Wextra -Werror
 COMP =	${OBJS:.c=.o}
-NAME = libftprintf.a
+NAME = ft_printf.a
 
 all: $(NAME)
 
 $(NAME): ${OBJS} ft_printf.h
 	@gcc -c ${CFLAGS} ${OBJS}
+	@mv *.o srcs
 	@ar rc ${NAME} ${COMP}
 clean:
 	@rm -f ${COMP}

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_restart_values.c                                :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 19:49:07 by acortes-          #+#    #+#             */
-/*   Updated: 2019/12/08 18:57:08 by acortes-         ###   ########.fr       */
+/*   Created: 2019/11/26 16:59:34 by acortes-          #+#    #+#             */
+/*   Updated: 2020/01/23 18:16:17 by acortes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	ft_restart_values(t_struct *base)
+int	ft_printf(const char *arr, ...)
 {
-	base->flags = 0;
-	base->width = 0;
-	base->precision = 0;
-	base->start_precision = 0;
-	base->take_arg = 0;
-	base->take_second_arg = 0;
-	base->i = 0;
-	base->n = 0;
+	t_struct	*base;
+	int			n;
+
+	if (!(base = (t_struct*)ft_calloc(1, sizeof(t_struct))))
+		return (-1);
+	base->copy = (char*)arr;
+	ft_all_values_to_start(base);
+	if (arr)
+	{
+		va_start(base->va_lues, arr);
+		base->len = ft_super_function(base);
+		va_end(base->va_lues);
+	}
+	n = base->total_return;
+	free(base);
+	return (n);
 }
