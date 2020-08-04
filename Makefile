@@ -24,7 +24,7 @@ $(NAME): ${OBJS} ft_printf.h
 	@mv *.o srcs
 	@ar rc ${NAME} ${COMP}
 clean:
-	@rm -f ${COMP}
+	@rm -f ${COMP} 
 fclean:	clean
 	@rm -f ${NAME}
 re: fclean all
